@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diwali Magic & Love – For Sandhya 🪔✨</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display, Plus Jakarta Sans, Dancing Script -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Dancing+Script:wght@600;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        diwaliGold: '#ffd700',
+                        deepAmber: '#ff8c00',
+                        royalPurple: '#1a0b2e',
+                        warmRed: '#e63946',
+                        pastelPink: '#fbe8ec',
+                        deepPink: '#e0839a',
+                        creamBg: '#fdfbf7'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Outfit', 'Plus Jakarta Sans', 'sans-serif'],
+                        script: ['Dancing Script', 'cursive'],
+                        cinzel: ['Cinzel', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom CSS for Diwali Animations & Glowing Effects */
+        body {
+            background: linear-gradient(135deg, #090310 0%, #150727 50%, #230538 100%);
+            color: #f8fafc;
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card-light {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Glowing Text Effect */
+        .text-glow-gold {
+            text-shadow: 0 0 12px rgba(255, 215, 0, 0.6), 0 0 24px rgba(255, 140, 0, 0.4);
+        }
+        .text-glow-pink {
+            text-shadow: 0 0 12px rgba(224, 131, 154, 0.7);
+        }
+
+        /* Floating Sparkles & Diya Animation */
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 2;
+            animation: floatUp linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(105vh) scale(0.5) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.2) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Diya Flame Glow */
+        .flame-glow {
+            animation: pulseGlow 1.5s ease-in-out infinite alternate;
+        }
+        @keyframes pulseGlow {
+            0% { filter: drop-shadow(0 0 5px #ffd700) drop-shadow(0 0 12px #ff8c00); transform: scale(1); }
+            100% { filter: drop-shadow(0 0 15px #ffd700) drop-shadow(0 0 25px #ff4500); transform: scale(1.08); }
+        }
+
+        /* Polaroid Hover Effect */
+        .polaroid {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .polaroid:hover {
+            transform: translateY(-8px) rotate(0deg) scale(1.03);
+            box-shadow: 0 20px 35px rgba(255, 215, 0, 0.3);
+            z-index: 30;
+        }
+
+        /* Envelope Animation */
+        .envelope-flap {
+            transition: transform 0.8s ease-in-out;
+            transform-origin: top;
+        }
+        .envelope.open .envelope-flap {
+            transform: rotateX(180deg);
+            z-index: 10;
+        }
+        .letter-paper {
+            transition: transform 0.8s ease-in-out 0.3s, opacity 0.5s ease 0.2s;
+        }
+        .envelope.open .letter-paper {
+            transform: translateY(-110px);
+            opacity: 1;
+            z-index: 20;
+        }
+
+        .quiz-opt {
+            transition: all 0.2s ease;
+        }
+        .quiz-opt:hover {
+            transform: translateX(6px);
+        }
+
+        /* Wheel Spinner Animation */
+        .wheel-spin {
+            transition: transform 3.5s cubic-bezier(0.15, 0.99, 0.18, 0.99);
+        }
+    </style>
+</head>
+<body class="relative min-h-screen flex flex-col justify-between">
+
+    <!-- Floating Sparkles Container -->
+    <div id="sparkles-container"></div>
+
+    <!-- Background Music Audio Element (Uses your local love.mp3) -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="love.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Floating Audio Control Widget -->
+    <div class="fixed top-6 right-6 z-50 flex gap-2">
+        <button id="admin-panel-btn" onclick="toggleAdminModal()" class="glass-card px-3 py-2 rounded-full text-xs font-bold text-amber-300 border border-amber-400/40 hover:bg-amber-500/20 transition flex items-center gap-1.5 shadow-lg">
+            <i class="fa-solid fa-qrcode text-amber-400"></i>
+            <span>👨‍💻 Admin QR Panel</span>
+        </button>
+
+        <button id="activity-tracker-btn" onclick="toggleTrackerModal()" class="glass-card px-3 py-2 rounded-full text-xs font-bold text-cyan-300 border border-cyan-400/40 hover:bg-cyan-500/20 transition flex items-center gap-1.5 shadow-lg">
+            <i class="fa-solid fa-chart-line text-cyan-400"></i>
+            <span>Log Report (11/11)</span>
+        </button>
+
+        <button id="music-toggle" onclick="toggleMusic()" class="glass-card px-4 py-2.5 rounded-full flex items-center gap-2 text-xs font-bold text-diwaliGold shadow-lg hover:bg-white/20 transition border border-diwaliGold/40">
+            <i id="music-icon" class="fa-solid fa-music text-diwaliGold animate-bounce"></i>
+            <span id="music-text">Playing Song... 🎵</span>
+        </button>
+    </div>
+
+    <!-- LIVE ADMIN QR MODAL (FOR YOU TO SEE SANDHYA'S QR CODE INSTANTLY) -->
+    <div id="admin-modal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="glass-card max-w-md w-full p-6 rounded-3xl border border-amber-400/50 shadow-2xl relative text-center">
+            <button onclick="toggleAdminModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="flex items-center justify-center gap-2 mb-3 border-b border-amber-500/30 pb-3">
+                <i class="fa-solid fa-cash-register text-amber-400 text-xl"></i>
+                <h3 class="font-bold text-amber-300 text-lg">Sandhya's Uploaded QR Code</h3>
+            </div>
+            <p class="text-xs text-gray-300 mb-4">Sandhya ne jo QR upload kiya hai wo yahan instant dikhega! Scan &amp; Pay chocolate gift 🍫✨</p>
+            
+            <div id="admin-qr-preview" class="p-4 bg-white/5 rounded-2xl border border-amber-400/30 min-h-[220px] flex flex-col items-center justify-center text-gray-400 text-xs">
+                <i class="fa-solid fa-qrcode text-4xl text-gray-600 mb-2"></i>
+                <span>No QR uploaded by Sandhya yet.</span>
+            </div>
+
+            <div class="mt-4 flex flex-col gap-2">
+                <button onclick="confirmAdminPayment()" id="confirm-pay-btn" class="hidden w-full py-2.5 bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold rounded-xl shadow-lg hover:scale-105 transition text-xs">
+                    <i class="fa-solid fa-check-double mr-1"></i> Mark Paid &amp; Send Chocolate Gift 🍫
+                </button>
+                <div class="flex justify-between items-center text-xs">
+                    <button onclick="downloadAdminQR()" id="dl-qr-btn" class="hidden px-4 py-2 bg-amber-500 text-gray-950 font-bold rounded-xl hover:bg-amber-400"><i class="fa-solid fa-download mr-1"></i> Save QR Image</button>
+                    <span id="qr-timestamp" class="text-gray-400 font-mono text-[10px]"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ACTIVITY TRACKER MODAL FOR YOU -->
+    <div id="tracker-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="glass-card max-w-lg w-full p-6 rounded-3xl border border-cyan-400/50 shadow-2xl relative">
+            <button onclick="toggleTrackerModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="flex items-center gap-2 mb-4 border-b border-cyan-500/30 pb-3">
+                <i class="fa-solid fa-square-poll-vertical text-cyan-400 text-xl"></i>
+                <h3 class="font-bold text-cyan-300 text-lg">Sandhya's Full Activity &amp; Quiz Report</h3>
+            </div>
+            <p class="text-xs text-gray-400 mb-4">Aap yahan 8 Quiz Answers aur 10 Surprises Unlocks ki live report dekh sakte hain! 🕵️‍♂️✨</p>
+            
+            <div id="activity-log-list" class="space-y-2 max-h-72 overflow-y-auto text-xs font-mono text-gray-200 pr-2">
+                <div class="p-2 bg-white/5 rounded border border-white/10 text-emerald-400">[00:00] Website Opened</div>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-white/10 text-right flex justify-between items-center">
+                <button onclick="copyLogReport()" class="text-xs text-cyan-300 bg-cyan-950/60 px-3 py-1.5 rounded border border-cyan-500/40 hover:bg-cyan-900"><i class="fa-solid fa-copy mr-1"></i> Copy Full Report</button>
+                <button onclick="clearActivityLog()" class="text-xs text-rose-400 hover:underline">Reset Logs</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         SECTION 1: OPENING SCREEN (DIWALI SURPRISE)
+         ========================================== -->
+    <section id="opening-screen" class="fixed inset-0 z-40 bg-gradient-to-br from-[#06020a] via-[#130624] to-[#200433] flex items-center justify-center p-6 transition-opacity duration-1000">
+        <div class="glass-card max-w-lg w-full p-8 md:p-12 rounded-3xl text-center shadow-2xl relative overflow-hidden border border-diwaliGold/30">
+            
+            <div class="inline-block p-4 bg-diwaliGold/10 rounded-full text-diwaliGold text-4xl mb-6 flame-glow">
+                🪔✨
+            </div>
+            
+            <span class="text-xs uppercase tracking-widest text-diwaliGold font-bold px-4 py-1.5 bg-diwaliGold/10 rounded-full border border-diwaliGold/30">10 Grand Surprises Waiting For You 💖</span>
+            
+            <h1 class="font-cinzel text-4xl md:text-5xl text-diwaliGold mb-3 font-bold mt-5 text-glow-gold">Happy Diwali Sandhya 🪔</h1>
+            <p class="font-serif text-lg md:text-xl text-gray-200 mb-8 italic">Patakho ki roshni toh poore sheher me hai... par meri sabse pyara patakha toh yahan hai 👀✨</p>
+            
+            <button onclick="openWorld()" class="w-full py-4 px-8 bg-gradient-to-r from-deepAmber via-diwaliGold to-deepPink text-gray-950 font-bold rounded-2xl shadow-xl shadow-diwaliGold/20 hover:shadow-diwaliGold/40 hover:scale-[1.02] active:scale-95 transition duration-300 flex items-center justify-center gap-3 text-lg font-sans">
+                <span>Start Your 10 Surprises Journey 🎁</span>
+                <i class="fa-solid fa-heart text-red-600 animate-pulse"></i>
+            </button>
+            <p class="text-xs text-amber-200/80 mt-5"><i class="fa-solid fa-music mr-1"></i> Press button to play romantic music &amp; unlock magic 🎶</p>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         MAIN WEBSITE CONTENT
+         ========================================== -->
+    <div id="main-content" class="opacity-0 transition-opacity duration-1000 hidden flex-grow flex flex-col justify-between">
+
+        <!-- HEADER BANNER -->
+        <header class="py-14 px-6 text-center relative">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-4xl mb-3 flame-glow">🪔 ✨ 🎆 ✨ 🪔</div>
+                <span class="text-xs uppercase tracking-[0.25em] text-diwaliGold font-bold px-5 py-2 bg-diwaliGold/10 rounded-full border border-diwaliGold/30">Handcrafted with all my heart</span>
+                <h1 class="font-serif text-4xl md:text-6xl text-white font-bold mt-5 mb-4 tracking-tight">Happy Diwali, Sandhya! 🧨💖</h1>
+                <p class="font-script text-3xl md:text-4xl text-diwaliGold text-glow-gold">"Poori duniya ki light ek taraf... aur aapki ek cute si smile ek taraf!" 😘</p>
+                
+                <!-- Progress Tracker Bar for Sandhya -->
+                <div class="mt-8 max-w-md mx-auto bg-white/5 border border-diwaliGold/30 rounded-full p-2 flex justify-between items-center px-6 text-xs text-diwaliGold">
+                    <span id="surprise-step-text" class="font-semibold"><i class="fa-solid fa-gift mr-1"></i> Surprises Unlocked: 1 / 10</span>
+                    <span class="animate-pulse font-bold text-emerald-400">Keep Exploring ↓</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- CONTAINER FOR SECTIONS -->
+        <main class="max-w-6xl mx-auto px-6 w-full space-y-20 pb-20">
+
+            <!-- ==========================================
+                 SURPRISE 1: PHOTO MEMORIES (POLAROID GALLERY)
+                 ========================================== -->
+            <section id="memories" class="relative">
+                <div class="text-center mb-12">
+                    <span class="text-xs font-bold text-diwaliGold bg-diwaliGold/10 px-4 py-1.5 rounded-full uppercase tracking-wider border border-diwaliGold/30">Surprise 1: Memories Corner 📸</span>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-diwaliGold mt-3">Our Glowing Moments ✨</h2>
+                    <p class="text-gray-300 mt-2 font-light">Tap any picture to view full size!</p>
+                </div>
+
+                <!-- Gallery Grid: 6 Polaroid-style cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 pt-4">
+                    <div onclick="openLightbox('https://placehold.co/600x600/1a0b2e/ffd700?text=Sandhya+Photo+1', 'A face full of innocence, and eyes full of magic.🖤✨— Sandhya ✨')" class="polaroid glass-card p-4 pb-6 rounded-2xl cursor-pointer transform -rotate-2">
+                        <div class="aspect-square bg-gray-900 rounded-xl overflow-hidden mb-4 relative">
+                            <img src="ls1.jpeg" alt="Diwali Memory 1" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                        </div>
+                        <p class="font-script text-2xl text-center text-diwaliGold">A face full of innocence, and eyes full of magic.🖤✨</p>
+                    </div>
+                    <div onclick="openLightbox('https://placehold.co/600x600/2a0845/ff8c00?text=Sandhya+Photo+2', 'Blooming with beauty,glowing with grace. 🌸🦋')" class="polaroid glass-card p-4 pb-6 rounded-2xl cursor-pointer transform rotate-1">
+                        <div class="aspect-square bg-gray-900 rounded-xl overflow-hidden mb-4 relative">
+                            <img src="ls2.jpeg" alt="Diwali Memory 2" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                        </div>
+                        <p class="font-script text-2xl text-center text-diwaliGold">Blooming with beauty,glowing with grace. 🌸🦋</p>
+                    </div>
+                    <div onclick="openLightbox('https://placehold.co/600x600/3c096c/e0839a?text=Sandhya+Photo+3', 'Not just wearing pink, she making it look magical 💗✨')" class="polaroid glass-card p-4 pb-6 rounded-2xl cursor-pointer transform -rotate-1">
+                        <div class="aspect-square bg-gray-900 rounded-xl overflow-hidden mb-4 relative">
+                            <img src="ls3.jpeg" alt="Diwali Memory 3" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                        </div>
+                        <p class="font-script text-2xl text-center text-diwaliGold">Not just wearing pink, she making it look magical 💗✨</p>
+                    </div>
+                    <div onclick="openLightbox('https://placehold.co/600x600/5c0099/ffd700?text=Sandhya+Photo+4', 'A little sunshine wrapped in a beautiful smile.🌻☀️')" class="polaroid glass-card p-4 pb-6 rounded-2xl cursor-pointer transform rotate-2">
+                        <div class="aspect-square bg-gray-900 rounded-xl overflow-hidden mb-4 relative">
+                            <img src="ls4.jpeg" alt="Diwali Memory 4" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                        </div>
+                        <p class="font-script text-2xl text-center text-diwaliGold">A little sunshine wrapped in a beautiful smile.🌻☀️</p>
+                    </div>
+                    <div onclick="openLightbox('https://placehold.co/600x600/0d0614/ff8c00?text=Sandhya+Photo+5', 'If eyes could tell stories,hers would be my favourite 👀❤️')" class="polaroid glass-card p-4 pb-6 rounded-2xl cursor-pointer transform -rotate-1">
+                        <div class="aspect-square bg-gray-900 rounded-xl overflow-hidden mb-4 relative">
+                            <img src="ls5.jpeg" alt="Diwali Memory 5" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                        </div>
+                        <p class="font-script text-2xl text-center text-diwaliGold">If eyes could tell stories,hers would be my favourite 👀❤️</p>
+                    </div>
+                    <div onclick="openLightbox('https://placehold.co/600x600/1a0b2e/e0839a?text=Sandhya+Photo+6', 'Elegance in every pose, beauty in every little detail.🌷💫')" class="polaroid glass-card p-4 pb-6 rounded-2xl cursor-pointer transform rotate-1">
+                        <div class="aspect-square bg-gray-900 rounded-xl overflow-hidden mb-4 relative">
+                            <img src="ls6.jpeg" alt="Diwali Memory 6" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                        </div>
+                        <p class="font-script text-2xl text-center text-diwaliGold">Elegance in every pose, beauty in every little detail.🌷💫</p>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ==========================================
+                 SURPRISE 2: 8-QUESTION LOVE & FUN QUIZ ABOUT ME
+                 ========================================== -->
+            <section id="quiz-section" class="max-w-3xl mx-auto py-4">
+                <div class="glass-card rounded-3xl p-6 md:p-10 border border-diwaliGold/30 relative">
+                    <div class="text-center mb-8">
+                        <span class="text-xs font-bold text-diwaliGold bg-diwaliGold/10 px-4 py-1.5 rounded-full uppercase tracking-wider border border-diwaliGold/30">Surprise 2: The 8-Question Quiz 🎯</span>
+                        <h2 class="font-serif text-3xl font-bold text-white mt-3">Tum Mujhe Kitna Jaanti Ho? 🤔😜</h2>
+                        <p class="text-gray-300 text-sm mt-1 font-light">Sahi option select karo aur dekho hamari chemistry score! 💥 (Complete 8/8)</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- Q1 -->
+                        <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
+                            <p class="font-semibold text-diwaliGold text-base mb-3">1. Mujhe sabse zyaada irritation kab hoti hai? 🫥</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <button onclick="answerQuiz(1, false, this, 'Traffic')" class="quiz-opt text-left px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-sm text-gray-200">A) Heavy traffic me phasne par</button>
+                                <button onclick="answerQuiz(1, true, this, 'Late Reply')" class="quiz-opt text-left px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-sm text-gray-200">B) Jab Sandhya mera message late dekhti hai! 😤</button>
+                            </div>
+                        </div>
+
+                        <!-- Q2 -->
+                        <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
+                            <p class="font-semibold text-diwaliGold text-base mb-3">2. Meri sabse favourite Diwali Mithai konsi hai? 🍬😋</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <button onclick="answerQuiz(2, false, this, 'Gulab Jamun')" class="quiz-opt text-left px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-sm text-gray-200">A) Kaju Katli ya Gulab Jamun</button>
+                                <button onclick="answerQuiz(2, true, this, 'Sandhya Smile')" class="quiz-opt text-left px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-sm text-gray-200">B) Sandhya ki super cute wali smile 💕</button>
+                            </div>
+                        </div>
+
+                        <!-- Q3 -->
+                        <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
+                            <p class="font-semibold text-diwaliGold text-base mb-3">3. Agar tum thodi gussa ho jao toh main sabse pehle kya karunga? 🥺</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <button onclick="answerQuiz(3, true, this, 'Instant Sorry')" class="quiz-opt text-left px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-sm text-gray-200">A) Instant Sorry + Pyari Baatein 🌹</button>
+                                <button onclick="answerQuiz(3, false, this, 'Run Away')" class="quiz-opt text-left px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-sm text-gray-200">B) Bhaag ke chup jaunga!</button>
+                            </div>
+                        </div>
+
+                        <!-- Q4 -->
+                        <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
+                            <p class="font-semibold text-diwaliGold text-base mb-3">4. Mera sabse bada mood booster kya hai? ⚡</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <button onclick="answerQuiz(4, false, this, 'Gaming')" class="quiz-opt text-left px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-sm text-gray-200">A) Gaming ya movie dekhna</button>
+                                <button onclick="answerQuiz(4, true, this, 'Sandhya Voice Call')" class="quiz-opt text-left px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-sm text-gray-200">B) Sandhya ki aawaz sunna aur baatein karna 📞😍</button>
+                            </div>
+                        </div>
+
+                        <!-- Q5 -->
+                        <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
+                            <p class="font-semibold text-diwaliGold text-base mb-3">5. Humari sabse best quality kya hai? 💖</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <button onclick="answerQuiz(5, true, this, 'Perfect Chemistry')" class="quiz-opt text-left px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-sm text-gray-200">A) Ek doosre ko bina bole samajh lena ✨</button>
+                                <button onclick="answerQuiz(5, false, this, 'Only Fighting')" class="quiz-opt text-left px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-sm text-gray-200">B) Ek doosre se bina baat ke ladna</button>
+                            </div>
+                        </div>
+
+                        <!-- Q6 -->
+                        <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
+                            <p class="font-semibold text-diwaliGold text-base mb-3">6. Agar mujhe late night craving ho toh mujhe kya chahiye? 🌙</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <button onclick="answerQuiz(6, false, this, 'Maggi')" class="quiz-opt text-left px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-sm text-gray-200">A) Garam Maggi ya Chai ☕</button>
+                                <button onclick="answerQuiz(6, true, this, 'Late Night Chat')" class="quiz-opt text-left px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-sm text-gray-200">B) Sandhya ke sath long deep talk 💭💕</button>
+                            </div>
+                        </div>
+
+                        <!-- Q7 -->
+                        <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
+                            <p class="font-semibold text-diwaliGold text-base mb-3">7. Mera sabse pyara nickname for you? 🙈</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <button onclick="answerQuiz(7, true, this, 'Mera Patakha Sandhya')" class="quiz-opt text-left px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-sm text-gray-200">A) Mera Pyara Patakha Sandhya 🎆</button>
+                                <button onclick="answerQuiz(7, false, this, 'Drama Queen')" class="quiz-opt text-left px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-sm text-gray-200">B) World's Top Drama Queen 👑</button>
+                            </div>
+                        </div>
+
+                        <!-- Q8 -->
+                        <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
+                            <p class="font-semibold text-diwaliGold text-base mb-3">8. Final Question: Yeh surprise website kaisilagi? 😘</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <button onclick="answerQuiz(8, true, this, 'Super Amazing')" class="quiz-opt text-left px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-sm text-gray-200">A) Super Romantic &amp; Cute! Best Gift Ever 💖</button>
+                                <button onclick="answerQuiz(8, true, this, 'Loved It')" class="quiz-opt text-left px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-sm text-gray-200">B) 1000/10! I Love It So Much 🪔✨</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="quiz-result" class="mt-6 text-center text-diwaliGold font-script text-3xl hidden animate-pulse">
+                        "Full Marks! Sandhya, tum toh meri mind reader ho! 😘✨"
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ==========================================
+                 SURPRISE 3: PERSONAL LOVE LETTER (ENVELOPE)
+                 ========================================== -->
+            <section id="letter-section" class="max-w-2xl mx-auto py-4">
+                <div class="text-center mb-8">
+                    <span class="text-xs font-bold text-diwaliGold bg-diwaliGold/10 px-4 py-1.5 rounded-full uppercase tracking-wider border border-diwaliGold/30">Surprise 3: From My Heart 💌</span>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-diwaliGold mt-3">A Letter Just For You 💌</h2>
+                    <p class="text-gray-300 mt-2 font-light">Envelope par tap karke mera letter kholo ✨</p>
+                </div>
+
+                <div id="envelope-container" class="relative cursor-pointer max-w-md mx-auto" onclick="toggleEnvelope()">
+                    <div class="envelope bg-[#f5e6d3] border-2 border-diwaliGold rounded-2xl shadow-2xl p-8 min-h-[360px] relative overflow-hidden transition-all duration-500">
+                        <div class="envelope-flap absolute top-0 left-0 w-full h-44 bg-[#ebd8c1] origin-top border-b-2 border-deepAmber" style="clip-path: polygon(0 0, 100% 0, 50% 100%);"></div>
+                        <div id="envelope-seal" class="absolute top-28 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-14 h-14 bg-gradient-to-r from-deepAmber to-red-600 rounded-full flex items-center justify-center text-white shadow-xl z-20 text-xl flame-glow">
+                            🪔
+                        </div>
+                        <div class="absolute inset-x-0 bottom-12 text-center z-10 pointer-events-none">
+                            <p class="font-script text-3xl text-gray-800 font-bold">For My Sandhya 💖</p>
+                            <p class="text-xs text-gray-600 mt-1">Tap to read my letter 💌</p>
+                        </div>
+                        <div class="letter-paper absolute inset-6 top-16 bg-[#fffdfa] rounded-xl p-6 md:p-8 shadow-inner opacity-0 transform translate-y-12 overflow-y-auto max-h-[380px] border border-diwaliGold/30 z-0">
+                            <h3 class="font-script text-3xl text-red-600 mb-4 font-bold">Dear Sandhya, 🪔✨</h3>
+                            <div class="space-y-4 text-gray-800 text-sm md:text-base leading-relaxed font-sans">
+                                <p>Happy Diwali mera sabse pyara patakha! 🎆</p>
+                                <p>Diwali me poora sheher lights aur diyas se sajta hai, par mere liye toh sabse pyaari aur sabse bright light aapki smile hi hai. Jab aap smile karti ho na, toh mera pura din ekdum roshan ho jata hai.</p>
+                                <p>Aapke sath baat karna, thodi natkhat masti karna, aur aapko tang karna... yeh sab meri sabse favourite cheez hai. Thank you so much meri life me aane ke liye aur har moment ko itna aesthetic aur special banane ke liye.</p>
+                                <p class="font-script text-2xl text-deepPink pt-4 font-bold">Always stay happy &amp; shining,<br>Yours &amp; Only Yours 😘🪔✨</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ==========================================
+                 SURPRISE 4: FLIRT & COMPLIMENT GENERATOR
+                 ========================================== -->
+            <section id="compliment-section" class="max-w-2xl mx-auto py-4">
+                <div class="glass-card rounded-3xl p-8 text-center border border-diwaliGold/40 relative">
+                    <span class="text-xs font-bold text-diwaliGold bg-diwaliGold/10 px-4 py-1.5 rounded-full uppercase tracking-wider border border-diwaliGold/30">Surprise 4: Flirt Generator 💌</span>
+                    <h2 class="font-serif text-3xl font-bold text-white mt-3">Unlimited Reasons Why You're Special 💕</h2>
+                    <p class="text-gray-300 text-sm mt-1 mb-6">Button dabao aur mera dil ka secret reason suno!</p>
+
+                    <div id="flirt-box" class="p-6 bg-white/5 rounded-2xl border border-diwaliGold/30 text-diwaliGold font-script text-3xl min-h-[100px] flex items-center justify-center">
+                        "Tap the button to reveal your sweet surprise compliment! ✨"
+                    </div>
+
+                    <button onclick="generateCompliment()" class="mt-6 px-8 py-3 bg-gradient-to-r from-deepPink to-deepAmber text-white font-bold rounded-xl shadow-lg hover:scale-105 transition">
+                        Get Sweet Reason 💖
+                    </button>
+                </div>
+            </section>
+
+
+            <!-- ==========================================
+                 SURPRISE 5: INTERACTIVE DIYA LIGHTING EXPERIENCE
+                 ========================================== -->
+            <section id="diya-section" class="max-w-3xl mx-auto py-4">
+                <div class="glass-card rounded-3xl p-8 text-center border border-diwaliGold/40 relative">
+                    <span class="text-xs font-bold text-diwaliGold bg-diwaliGold/10 px-4 py-1.5 rounded-full uppercase tracking-wider border border-diwaliGold/30">Surprise 5: Light Up The Diyas 🪔</span>
+                    <h2 class="font-serif text-3xl font-bold text-white mt-3">Light 5 Magical Diyas For Us ✨</h2>
+                    <p class="text-gray-300 text-sm mt-1 mb-6">Har ek Diya par click karke use roshan karo aur wish unlock karo!</p>
+
+                    <div class="grid grid-cols-5 gap-3 max-w-md mx-auto mb-6">
+                        <button onclick="lightDiya(1, 'Happiness Wish 🌟')" class="diya-btn p-4 bg-white/5 border border-diwaliGold/30 rounded-2xl text-3xl transition hover:scale-110">🪔</button>
+                        <button onclick="lightDiya(2, 'Forever Love Wish 💖')" class="diya-btn p-4 bg-white/5 border border-diwaliGold/30 rounded-2xl text-3xl transition hover:scale-110">🪔</button>
+                        <button onclick="lightDiya(3, 'Good Health & Success 🌺')" class="diya-btn p-4 bg-white/5 border border-diwaliGold/30 rounded-2xl text-3xl transition hover:scale-110">🪔</button>
+                        <button onclick="lightDiya(4, 'Endless Smiles 😊')" class="diya-btn p-4 bg-white/5 border border-diwaliGold/30 rounded-2xl text-3xl transition hover:scale-110">🪔</button>
+                        <button onclick="lightDiya(5, 'Together Forever Pass 💍')" class="diya-btn p-4 bg-white/5 border border-diwaliGold/30 rounded-2xl text-3xl transition hover:scale-110">🪔</button>
+                    </div>
+
+                    <div id="diya-status" class="text-sm font-semibold text-diwaliGold">Diyas Lit: 0 / 5</div>
+                </div>
+            </section>
+
+
+            <!-- ==========================================
+                 SURPRISE 6: SECRET GARDEN GATE UNLOCK
+                 ========================================== -->
+            <section id="secret-gate-section" class="max-w-2xl mx-auto py-4">
+                <div class="glass-card rounded-3xl p-8 md:p-12 text-center shadow-2xl relative overflow-hidden border border-diwaliGold/40">
+                    <div id="gate-locked-state">
+                        <span class="text-xs font-bold text-diwaliGold bg-diwaliGold/10 px-4 py-1.5 rounded-full uppercase tracking-wider border border-diwaliGold/30">Surprise 6: Secret Password Box 🔐</span>
+                        <div class="w-16 h-16 bg-diwaliGold/20 rounded-full flex items-center justify-center mx-auto mb-4 mt-4 text-diwaliGold text-3xl shadow-inner flame-glow">
+                            <i class="fa-solid fa-lock" id="lock-icon"></i>
+                        </div>
+                        
+                        <h2 class="font-serif text-2xl md:text-3xl font-bold text-white mb-2">My Secret Wish Box 🎁✨</h2>
+                        <p class="text-gray-300 text-sm mb-6 font-light">Secret password dalo aur meri special Diwali Wish unlock karo!</p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                            <input type="password" id="secret-password" placeholder="Enter password (sandhya)..." class="flex-grow px-5 py-3 rounded-xl border border-diwaliGold/40 focus:outline-none focus:ring-2 focus:ring-diwaliGold bg-black/50 text-white placeholder-gray-400 text-sm">
+                            <button onclick="unlockGarden()" class="px-6 py-3 bg-gradient-to-r from-diwaliGold to-deepAmber text-gray-950 font-bold rounded-xl hover:scale-105 transition duration-300 shadow-md">
+                                Unlock 🪔
+                            </button>
+                        </div>
+                        <p id="error-msg" class="text-xs text-rose-400 mt-2 h-4 font-semibold"></p>
+                        <p class="text-xs text-gray-400 mt-3">Hint: Aapka pyaara naam lowercase me (<span class="text-diwaliGold font-mono">sandhya</span>)</p>
+                    </div>
+
+                    <div id="gate-unlocked-state" class="hidden space-y-6">
+                        <div class="w-20 h-20 bg-diwaliGold/20 rounded-full flex items-center justify-center mx-auto text-diwaliGold text-4xl shadow-inner flame-glow">
+                            🪔💖✨
+                        </div>
+                        <h2 class="font-script text-4xl text-diwaliGold font-bold text-glow-gold">Special Message Unlocked! 🎉</h2>
+                        
+                        <div class="p-6 bg-black/50 rounded-2xl border border-diwaliGold/40 text-gray-100 font-serif text-lg leading-relaxed shadow-lg">
+                            <p>"Sandhya, you are someone truly special to me. Iss Diwali aur aane wale har ek din me aapki life me dher saari khushiyan, laughter, success aur mera bohot saara pyaar rahe. Keep shining bright like a star! ✨🪔"</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ==========================================
+                 SURPRISE 7: MEGA COUPON WHEEL
+                 ========================================== -->
+            <section id="wheel-section" class="max-w-2xl mx-auto py-4">
+                <div class="glass-card rounded-3xl p-8 md:p-10 text-center border border-diwaliGold/50 relative overflow-hidden">
+                    <span class="text-xs font-bold text-diwaliGold bg-diwaliGold/10 px-4 py-1.5 rounded-full uppercase tracking-wider border border-diwaliGold/30">Surprise 7: Mega Coupon Wheel 🎡</span>
+                    <h2 class="font-serif text-3xl font-bold text-white mt-3">Spin Your Diwali Gift Wheel! 🎁✨</h2>
+                    <p class="text-gray-300 text-sm mt-1 mb-6 font-light">Wheel ko spin karo aur apna romantic Diwali coupon jeeto!</p>
+
+                    <div class="relative w-64 h-64 mx-auto mb-6">
+                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20 text-red-500 text-3xl filter drop-shadow">▼</div>
+                        <div id="diwali-wheel" class="wheel-spin w-full h-full rounded-full border-4 border-diwaliGold shadow-2xl bg-gradient-to-tr from-deepAmber via-diwaliGold to-deepPink flex items-center justify-center relative overflow-hidden">
+                            <div class="absolute inset-0 flex items-center justify-center text-gray-950 font-bold text-xs uppercase text-center p-4 font-sans">
+                                <span>🎯 Spin To Win<br>Sandhya's Diwali Gift!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="spinDiwaliWheel()" id="spin-btn" class="px-8 py-3.5 bg-gradient-to-r from-deepAmber via-diwaliGold to-deepPink text-gray-950 font-bold rounded-2xl shadow-xl hover:scale-105 transition">
+                        Spin Wheel Now 🎲
+                    </button>
+
+                    <div id="wheel-result-box" class="mt-6 p-4 bg-white/10 rounded-2xl border border-diwaliGold/40 text-diwaliGold font-script text-2xl hidden animate-pulse">
+                        <!-- Prize dynamically injected -->
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ==========================================
+                 SURPRISE 8: VIRTUAL SPARKLE & FIREWORKS TRIGGER
+                 ========================================== -->
+            <section id="fireworks-section" class="max-w-2xl mx-auto py-4">
+                <div class="glass-card rounded-3xl p-8 text-center border border-diwaliGold/40 relative">
+                    <span class="text-xs font-bold text-diwaliGold bg-diwaliGold/10 px-4 py-1.5 rounded-full uppercase tracking-wider border border-diwaliGold/30">Surprise 8: Virtual Fireworks 🎆</span>
+                    <h2 class="font-serif text-3xl font-bold text-white mt-3">Launch Diwali Fireworks For Sandhya! 🚀</h2>
+                    <p class="text-gray-300 text-sm mt-1 mb-6">Screen par full phuljhari aur patakha burst karne ke liye click karo!</p>
+
+                    <button onclick="triggerFireworksBurst()" class="px-8 py-4 bg-gradient-to-r from-red-600 via-deepAmber to-diwaliGold text-white font-bold rounded-2xl shadow-xl hover:scale-105 transition text-lg flex items-center justify-center gap-2 mx-auto">
+                        <span>Launch Sky Fireworks 🎇</span>
+                        <i class="fa-solid fa-rocket animate-bounce"></i>
+                    </button>
+                </div>
+            </section>
+
+
+            <!-- ==========================================
+                 SURPRISE 9: TIME CAPSULE & PROMISE CARD
+                 ========================================== -->
+            <section id="promise-section" class="max-w-2xl mx-auto py-4">
+                <div class="glass-card rounded-3xl p-8 text-center border border-diwaliGold/40 relative">
+                    <span class="text-xs font-bold text-diwaliGold bg-diwaliGold/10 px-4 py-1.5 rounded-full uppercase tracking-wider border border-diwaliGold/30">Surprise 9: My Promises 💍</span>
+                    <h2 class="font-serif text-3xl font-bold text-white mt-3">3 Sweet Promises For You 🤝</h2>
+                    <p class="text-gray-300 text-sm mt-1 mb-6">Tap on each card to unlock my promise!</p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div onclick="revealPromise(1, 'Always listen to your long stories with full interest 🎧', this)" class="p-5 bg-white/5 border border-white/10 rounded-2xl cursor-pointer hover:border-diwaliGold transition">
+                            <span class="text-2xl"> Promise 1 📜</span>
+                            <p class="text-xs text-gray-400 mt-2">Tap to view</p>
+                        </div>
+                        <div onclick="revealPromise(2, 'Never sleep while you are upset with me 🥺', this)" class="p-5 bg-white/5 border border-white/10 rounded-2xl cursor-pointer hover:border-diwaliGold transition">
+                            <span class="text-2xl"> Promise 2 📜</span>
+                            <p class="text-xs text-gray-400 mt-2">Tap to view</p>
+                        </div>
+                        <div onclick="revealPromise(3, 'Keep making you smile with cute surprises like this 💖', this)" class="p-5 bg-white/5 border border-white/10 rounded-2xl cursor-pointer hover:border-diwaliGold transition">
+                            <span class="text-2xl"> Promise 3 📜</span>
+                            <p class="text-xs text-gray-400 mt-2">Tap to view</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ==========================================
+                 SURPRISE 10: FINAL GRAND LOVE BANNER & RECAP
+                 ========================================== -->
+            <section id="grand-outro" class="max-w-3xl mx-auto py-6">
+                <div class="glass-card rounded-3xl p-10 text-center border-2 border-diwaliGold/60 relative overflow-hidden bg-gradient-to-b from-transparent to-diwaliGold/10">
+                    <span class="text-xs font-bold text-diwaliGold bg-diwaliGold/20 px-4 py-1.5 rounded-full uppercase tracking-widest border border-diwaliGold/40">Surprise 10: Final Grand Wish 🪔</span>
+                    <h2 class="font-script text-5xl md:text-6xl text-diwaliGold font-bold mt-4 mb-4 text-glow-gold">Happy Diwali Sandhya! 🎆💖</h2>
+                    <p class="font-serif text-lg text-gray-200 leading-relaxed max-w-xl mx-auto">"You completed all 10 surprises! Thank you for being the most precious part of my life. May your Diwali be as sweet, bright, and beautiful as you are!"</p>
+
+                    <div class="mt-8 text-2xl font-bold text-emerald-400 animate-pulse font-mono">
+                        🏆 10 / 10 Surprises Completed! 🎉
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ==========================================
+                 SURPRISE 11: CHOCOLATE QR CODE GIFT BOX
+                 ========================================== -->
+            <section id="chocolate-qr-section" class="max-w-2xl mx-auto py-4">
+                <div class="glass-card rounded-3xl p-8 text-center border-2 border-amber-400/60 relative overflow-hidden bg-gradient-to-br from-amber-950/30 to-purple-950/40 shadow-2xl">
+                    <span class="text-xs font-bold text-amber-300 bg-amber-500/20 px-4 py-1.5 rounded-full uppercase tracking-wider border border-amber-400/40">Surprise 11: Chocolate Gift Box 🍫</span>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-amber-300 mt-3">Treat Yourself With Chocolates! 🍫✨</h2>
+                    <p class="text-gray-200 text-sm mt-2 mb-6 font-light">
+                        Apna GPay/PhonePe/Paytm QR Code yahan upload karo, instant payment aa jayegi taaki tum apni favourite chocolates buy kar sako! 😋💖
+                    </p>
+
+                    <div class="p-6 bg-black/40 rounded-2xl border border-amber-400/30 max-w-md mx-auto space-y-4">
+                        <input type="file" id="qr-input-file" accept="image/*" onchange="previewSandhyaQR(event)" class="hidden">
+                        
+                        <div onclick="document.getElementById('qr-input-file').click()" class="cursor-pointer p-6 border-2 border-dashed border-amber-400/50 rounded-xl hover:border-amber-300 transition bg-white/5 flex flex-col items-center justify-center">
+                            <div id="sandhya-qr-box" class="flex flex-col items-center">
+                                <i class="fa-solid fa-cloud-arrow-up text-3xl text-amber-300 mb-2"></i>
+                                <span class="text-xs text-amber-200 font-semibold">Tap to select your QR Code photo 📸</span>
+                            </div>
+                            <img id="sandhya-qr-preview-img" class="hidden max-h-48 rounded-lg shadow-lg border border-amber-300/40">
+                        </div>
+
+                        <button onclick="sendSandhyaQR()" id="send-qr-btn" class="w-full py-3 bg-gradient-to-r from-amber-500 via-diwaliGold to-amber-600 text-gray-950 font-bold rounded-xl shadow-lg hover:scale-[1.02] transition">
+                            Send QR Code to Me 💌🍫
+                        </button>
+
+                        <div id="sandhya-qr-status" class="hidden text-xs font-bold p-3 rounded-xl border border-amber-400/40 bg-black/40">
+                            <span id="sandhya-status-text" class="text-amber-300 animate-pulse">⏳ QR Sent! Waiting for payment confirmation...</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="py-8 text-center border-t border-white/10 text-xs text-gray-400 space-y-2">
+            <p class="font-script text-2xl text-diwaliGold">Made specially for Sandhya with all my love 🪔✨</p>
+            <p>Happy Diwali My Love • Forever &amp; Always</p>
+        </footer>
+
+    </div>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightbox" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4" onclick="closeLightbox()">
+        <div class="relative max-w-3xl w-full bg-gray-900 border border-diwaliGold/30 rounded-2xl overflow-hidden shadow-2xl p-4" onclick="event.stopPropagation()">
+            <button onclick="closeLightbox()" class="absolute top-4 right-4 z-10 w-10 h-10 bg-white/20 hover:bg-white/40 text-white rounded-full flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div class="aspect-square max-h-[70vh] bg-black rounded-xl overflow-hidden flex items-center justify-center mb-4">
+                <img id="lightbox-img" src="photo.jpg" alt="Enlarged photo" class="w-full h-full object-contain">
+            </div>
+            <p id="lightbox-caption" class="font-script text-3xl text-center text-diwaliGold pb-2"></p>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        const SECRET_PASSWORD = "sandhya";
+        // CUSTOM PASSWORDS FOR ADMIN & LOG REPORT
+        const ADMIN_PASSWORD = "admin123";      // Password to open Admin Panel
+        const REPORT_PASSWORD = "report123";    // Password to open Log Report
+
+        let isMusicPlaying = false;
+        const bgMusic = document.getElementById('bg-music');
+        let surpriseStep = 1;
+        let litDiyasCount = 0;
+        let uploadedQRData = null;
+        let isPaymentApproved = false;
+
+        // TRACKER LOG ARRAY FOR YOU
+        let activityLogs = [];
+
+        function logEvent(msg) {
+            const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            const entry = `[${time}] ${msg}`;
+            activityLogs.push(entry);
+
+            const list = document.getElementById('activity-log-list');
+            if (list) {
+                const item = document.createElement('div');
+                item.className = "p-2 bg-white/5 rounded border border-white/10 text-emerald-400";
+                item.innerText = entry;
+                list.appendChild(item);
+                list.scrollTop = list.scrollHeight;
+            }
+        }
+
+        // PASSWORD PROTECTED ADMIN PANEL MODAL
+        function toggleAdminModal() {
+            const modal = document.getElementById('admin-modal');
+            if (modal.classList.contains('hidden')) {
+                const passInput = prompt("Enter Admin Panel Security Password:");
+                if (passInput !== ADMIN_PASSWORD) {
+                    if (passInput !== null) {
+                        alert("Incorrect Admin Password! Access Denied. ❌");
+                    }
+                    logEvent("Unauthorized Admin Panel Access Attempt");
+                    return;
+                }
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                logEvent("Admin Panel Opened by You 👨‍💻");
+            } else {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            }
+        }
+
+        // PASSWORD PROTECTED ACTIVITY REPORT MODAL
+        function toggleTrackerModal() {
+            const modal = document.getElementById('tracker-modal');
+            if (modal.classList.contains('hidden')) {
+                const passInput = prompt("Enter Log Report Security Password:");
+                if (passInput !== REPORT_PASSWORD) {
+                    if (passInput !== null) {
+                        alert("Incorrect Report Password! Access Denied. ❌");
+                    }
+                    logEvent("Unauthorized Log Report Access Attempt");
+                    return;
+                }
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                logEvent("Activity Log Report Viewed 📊");
+            } else {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            }
+        }
+
+        function previewSandhyaQR(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                uploadedQRData = e.target.result;
+                const img = document.getElementById('sandhya-qr-preview-img');
+                const box = document.getElementById('sandhya-qr-box');
+                img.src = uploadedQRData;
+                img.classList.remove('hidden');
+                box.classList.add('hidden');
+                logEvent(`Sandhya selected QR Code Image (${file.name})`);
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function sendSandhyaQR() {
+            if (!uploadedQRData) {
+                alert("Pehle QR code photo select karo! 🙈");
+                return;
+            }
+
+            const statusBox = document.getElementById('sandhya-qr-status');
+            const statusText = document.getElementById('sandhya-status-text');
+            statusBox.classList.remove('hidden');
+            
+            if (!isPaymentApproved) {
+                statusBox.className = "text-xs font-bold p-4 rounded-xl border-2 border-amber-400/60 bg-amber-950/80 text-amber-300 shadow-xl";
+                statusText.innerHTML = "⏳ QR Sent! Waiting for payment confirmation...";
+            }
+            
+            logEvent("Surprise 11: Sandhya uploaded & sent her Payment QR Code! 🍫💳");
+            updateSurpriseProgress(11);
+
+            // Update Admin Modal content instantly
+            const adminBox = document.getElementById('admin-qr-preview');
+            adminBox.innerHTML = `<img src="${uploadedQRData}" class="max-h-60 rounded-xl border-2 border-amber-400 shadow-2xl">`;
+            document.getElementById('dl-qr-btn').classList.remove('hidden');
+            document.getElementById('confirm-pay-btn').classList.remove('hidden');
+            document.getElementById('qr-timestamp').innerText = "Uploaded: " + new Date().toLocaleTimeString();
+
+            createSparkleBurst();
+        }
+
+        function confirmAdminPayment() {
+            // Instant real-time unlock on Sandhya's UI
+            isPaymentApproved = true;
+            const statusText = document.getElementById('sandhya-status-text');
+            const statusBox = document.getElementById('sandhya-qr-status');
+            
+            statusBox.className = "text-xs font-bold p-4 rounded-xl border-2 border-emerald-400 bg-emerald-950/80 text-emerald-300 shadow-2xl animate-bounce";
+            statusText.innerHTML = "🎉 Payment Done! Enjoy your favorite chocolates, my love! 🍫😋✨";
+
+            logEvent("Admin confirmed chocolate payment! Gift redeemed by Sandhya 🍫✅");
+            createSparkleBurst();
+            createSparkleBurst();
+            
+            alert("Payment marked as DONE! Sandhya's screen has been updated with her Chocolate Gift Card! 🍫💖");
+            toggleAdminModal();
+        }
+
+        function downloadAdminQR() {
+            if (!uploadedQRData) return;
+            const a = document.createElement('a');
+            a.href = uploadedQRData;
+            a.download = 'Sandhya_Chocolate_QR.png';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            logEvent("Admin Downloaded Sandhya's QR Image 📥");
+        }
+
+        function copyLogReport() {
+            const reportText = activityLogs.join('\n');
+            navigator.clipboard.writeText(reportText).then(() => {
+                alert("Activity log copied to clipboard! 📋");
+            }).catch(() => {
+                const textarea = document.createElement('textarea');
+                textarea.value = reportText;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                alert("Activity log copied to clipboard! 📋");
+            });
+        }
+
+        function clearActivityLog() {
+            activityLogs = [];
+            const list = document.getElementById('activity-log-list');
+            if (list) list.innerHTML = '<div class="p-2 bg-white/5 rounded border border-white/10 text-emerald-400">[00:00] Logs Reset</div>';
+        }
+
+        function openWorld() {
+            const opening = document.getElementById('opening-screen');
+            const main = document.getElementById('main-content');
+            
+            opening.classList.add('opacity-0');
+            setTimeout(() => {
+                opening.classList.add('hidden');
+                main.classList.remove('hidden');
+                setTimeout(() => {
+                    main.classList.remove('opacity-0');
+                }, 50);
+            }, 1000);
+
+            if (!isMusicPlaying) {
+                toggleMusic();
+            }
+            logEvent("Website Entered & Opened 🪔");
+            updateSurpriseProgress(1);
+        }
+
+        function toggleMusic() {
+            const icon = document.getElementById('music-icon');
+            const text = document.getElementById('music-text');
+            if (isMusicPlaying) {
+                bgMusic.pause();
+                icon.className = 'fa-solid fa-music text-gray-400';
+                text.innerText = 'Play Music 🎵';
+                isMusicPlaying = false;
+                logEvent("Music Paused");
+            } else {
+                bgMusic.play().then(() => {
+                    icon.className = 'fa-solid fa-music text-diwaliGold animate-bounce';
+                    text.innerText = 'Playing Song... 🎵';
+                    isMusicPlaying = true;
+                    logEvent("Music Playing 🎵");
+                }).catch(err => {
+                    console.log("Audio play deferred for user interaction:", err);
+                });
+            }
+        }
+
+        function updateSurpriseProgress(step) {
+            if (step > surpriseStep) {
+                surpriseStep = step;
+                const text = document.getElementById('surprise-step-text');
+                if (text) {
+                    text.innerHTML = `<i class="fa-solid fa-gift mr-1"></i> Surprises Unlocked: ${Math.min(surpriseStep, 11)} / 11`;
+                }
+            }
+        }
+
+        function answerQuiz(qNum, isCorrect, btn, optionText) {
+            const parent = btn.parentElement;
+            const buttons = parent.querySelectorAll('button');
+            buttons.forEach(b => {
+                b.disabled = true;
+                b.classList.remove('bg-white/10', 'hover:bg-white/20');
+                b.classList.add('bg-white/5', 'opacity-60');
+            });
+
+            if (isCorrect) {
+                btn.classList.remove('bg-white/5', 'opacity-60');
+                btn.classList.add('bg-emerald-500/30', 'border-2', 'border-emerald-400', 'text-emerald-200');
+            } else {
+                btn.classList.remove('bg-white/5', 'opacity-60');
+                btn.classList.add('bg-rose-500/30', 'border-2', 'border-rose-400', 'text-rose-200');
+            }
+
+            logEvent(`Quiz Q${qNum} Answered: Selected "${optionText}" (${isCorrect ? 'Correct' : 'Chosen'})`);
+            updateSurpriseProgress(2);
+
+            const allAnswered = document.querySelectorAll('.quiz-opt:disabled').length >= 16;
+            if (allAnswered) {
+                const res = document.getElementById('quiz-result');
+                if (res) res.classList.remove('hidden');
+                logEvent("Quiz Completed 8/8 questions!");
+            }
+        }
+
+        function toggleEnvelope() {
+            const env = document.querySelector('.envelope');
+            env.classList.toggle('open');
+            logEvent("Love Letter Envelope Opened 💌");
+            updateSurpriseProgress(3);
+        }
+
+        const compliments = [
+            "Teri ek smile poori duniya ki sabse pyari light hai! 🪔✨",
+            "Mithaiyan ek taraf, aur Sandhya ki meethi baatein ek taraf! 🍬",
+            "You are the most precious person in my life! 💖",
+            "Diwali ke sabse bright phuljhari ho tum! 🎇",
+            "Tere bina koi bhi festival complete nahi lagta! 👀💕"
+        ];
+
+        function generateCompliment() {
+            const box = document.getElementById('flirt-box');
+            const rand = compliments[Math.floor(Math.random() * compliments.length)];
+            box.innerText = rand;
+            logEvent(`Flirt Compliment Generated: "${rand}"`);
+            updateSurpriseProgress(4);
+            createSparkleBurst();
+        }
+
+        function lightDiya(num, wish) {
+            const btns = document.querySelectorAll('.diya-btn');
+            if (btns[num - 1]) {
+                btns[num - 1].classList.add('flame-glow', 'border-diwaliGold', 'bg-diwaliGold/20');
+                btns[num - 1].disabled = true;
+            }
+            litDiyasCount++;
+            document.getElementById('diya-status').innerText = `Diyas Lit: ${litDiyasCount} / 5`;
+            logEvent(`Diya ${num} Lit: Unlocked wish "${wish}"`);
+            updateSurpriseProgress(5);
+            createSparkleBurst();
+        }
+
+        function unlockGarden() {
+            const pwd = document.getElementById('secret-password').value.trim().toLowerCase();
+            const err = document.getElementById('error-msg');
+            
+            if (pwd === SECRET_PASSWORD) {
+                document.getElementById('gate-locked-state').classList.add('hidden');
+                document.getElementById('gate-unlocked-state').classList.remove('hidden');
+                logEvent("Secret Password Box Unlocked Successfully 🔐✨");
+                updateSurpriseProgress(6);
+                createSparkleBurst();
+            } else {
+                err.innerText = "Galat password! Hint check karo (sandhya) 🙈";
+                logEvent(`Failed Password Entry: Entered "${pwd}"`);
+            }
+        }
+
+        const wheelPrizes = [
+            "One Unlimited Phone Call Pass 📞",
+            "Special Midnight Coffee Date ☕",
+            "Unlimited Extra Hugs & Kisses 💖",
+            "Instant Sorry Card Pass 🙈",
+            "Sandhya's Favorite Treat 🍦"
+        ];
+
+        function spinDiwaliWheel() {
+            const wheel = document.getElementById('diwali-wheel');
+            const resBox = document.getElementById('wheel-result-box');
+            const btn = document.getElementById('spin-btn');
+            
+            btn.disabled = true;
+            const prize = wheelPrizes[Math.floor(Math.random() * wheelPrizes.length)];
+            const deg = 1440 + Math.floor(Math.random() * 360);
+            wheel.style.transform = `rotate(${deg}deg)`;
+
+            setTimeout(() => {
+                resBox.innerText = `🎉 You Won: ${prize}!`;
+                resBox.classList.remove('hidden');
+                btn.disabled = false;
+                logEvent(`Diwali Wheel Spun: Sandhya won "${prize}" 🎡`);
+                updateSurpriseProgress(7);
+                createSparkleBurst();
+            }, 3500);
+        }
+
+        function triggerFireworksBurst() {
+            createSparkleBurst();
+            createSparkleBurst();
+            logEvent("Virtual Sky Fireworks Triggered 🎆");
+            updateSurpriseProgress(8);
+        }
+
+        function revealPromise(num, promiseText, el) {
+            el.innerHTML = `<span class="text-sm font-bold text-diwaliGold">${promiseText}</span>`;
+            logEvent(`Promise ${num} Unlocked: "${promiseText}"`);
+            updateSurpriseProgress(9);
+            createSparkleBurst();
+        }
+
+        function openLightbox(src, caption) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox-caption').innerText = caption;
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+            logEvent(`Photo Memory Opened: "${caption}"`);
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('flex');
+            lightbox.classList.add('hidden');
+            logEvent("Photo Lightbox Closed");
+        }
+
+        function createSparkleBurst() {
+            const colors = ['#ffd700', '#ff8c00', '#e0839a', '#00e5ff', '#ffffff'];
+            for (let i = 0; i < 20; i++) {
+                const s = document.createElement('div');
+                s.className = 'sparkle';
+                s.style.left = Math.random() * 100 + 'vw';
+                s.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                s.style.width = (Math.random() * 8 + 4) + 'px';
+                s.style.height = s.style.width;
+                s.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                s.style.borderRadius = '50%';
+                document.getElementById('sparkles-container').appendChild(s);
+
+                setTimeout(() => {
+                    s.remove();
+                }, 4000);
+            }
+        }
+
+        // Initialize sparkles background interval
+        setInterval(() => {
+            if (Math.random() > 0.5) createSparkleBurst();
+        }, 1500);
+    </script>
+</body>
+</html>
